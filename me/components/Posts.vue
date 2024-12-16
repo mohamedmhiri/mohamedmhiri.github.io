@@ -73,6 +73,10 @@ try {
     immediate: true,
     watch: true,
   });
+  const { query } = useRoute().query;
+  if (query) {
+    searchTerm.value = query;
+  }
   posts.value = data.posts.map((post) => {
     return {
       content: post.record.text,
